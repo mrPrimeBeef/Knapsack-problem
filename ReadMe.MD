@@ -1,15 +1,25 @@
- - Repositoriet skal indeholde en README.md med samme information som forsiden af rapporten:
-
-
-  - Navn på projektet
 # Knapsack Problem 01
   En kort beskrivelse for “almindelige mennesker”
+  ### Big O notion
+  #### Time: O(2^n):
+    - Med 5 elementer: ~47 operationer
+    - Med 10 elementer: ~1000+ operationer
+  #### Space: O(n)
+  eks med 3 elementer
+                    f(3)
+                   /    \
+              f(2)          f(2)
+             /    \        /    \
+         f(1)    f(1)   f(1)    f(1)
+        /   \    /   \ /   \   /   \
+      f(0) f(0) f(0) f(0) f(0) f(0) f(0) f(0)
 
+  Rekursiv er bedre på space, men værre på time.
 
    - Screenshot af den kørende visualisering
 # Sceenshot af visualisering:
 
-- Navne på gruppemedlemmer - både fornavn og efternavn, så vi undgår mixups.
+
 ## Gruppe:
 Rolf lundsgaard Josephsen
   

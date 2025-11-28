@@ -1,13 +1,12 @@
 import assert from "assert";
-import { knapsack } from "../knapsack.js";
+import { knapsack } from "./knapsack.js";
 
 describe("knapsack", function () {
   describe("basic functionality", function () {
     let items = [];
-    let capacity = 50;
+    let capacity = 7;
 
     before(function () {
-      // create items with weight and value
       items = [
         { weight: 4, value: 5 },
         { weight: 2, value: 3 },
@@ -18,7 +17,8 @@ describe("knapsack", function () {
     });
 
     describe("optimal selection", function () {
-      it("The knapsack algo should return: ", function () {
+      it("The knapsack should return ", function () {
+        
         const result = knapsack(items, capacity);
         assert.equal(result.maxValue, 10);
       });

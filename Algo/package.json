@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha test.js -b"
   },
   "devDependencies": {
     "mocha": "^11.7.5"

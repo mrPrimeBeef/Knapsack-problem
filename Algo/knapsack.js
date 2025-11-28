@@ -1,5 +1,7 @@
 // Resursive
+let count = 1;
 function knapsackRecursive(items, maxCap, n, selected = []) {
+  // console.log(`the recusion is on: ${count}`);
   if (items == null || maxCap < 0 || n < 0) {
     return { maxValue: 0, selectedItems: [], totalWeight: 0 };
   }
@@ -12,7 +14,12 @@ function knapsackRecursive(items, maxCap, n, selected = []) {
   let pick = { maxValue: 0, selectedItems: [], totalWeight: 0 };
 
   if (items[n - 1].weight <= maxCap) {
-    const result = knapsackRecursive(items, maxCap - items[n - 1].weight, n - 1);
+    count++;
+    const result = knapsackRecursive(
+      items,
+      maxCap - items[n - 1].weight,
+      n - 1
+    );
 
     pick = {
       maxValue: items[n - 1].value + result.maxValue,
@@ -20,7 +27,7 @@ function knapsackRecursive(items, maxCap, n, selected = []) {
       totalWeight: items[n - 1].weight + result.totalWeight,
     };
   }
-
+  count++;
   const notPick = knapsackRecursive(items, maxCap, n - 1);
 
   return pick.maxValue > notPick.maxValue ? pick : notPick;
