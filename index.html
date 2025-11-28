@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Knapsack Problem</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Knapsack visualization:</h1>
-    
-    <script src="script.js"></script>
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Knapsack visualization:</h1>
+      <h2>How to:</h2>
+      <p>før du kører <strong>start</strong> skal der intastes tal i <strong>"max capacity"</strong> og  generes items</p>
+      <div class="controlls">
+        <input id="maxCap" type="number" placeholder="max capacity" />
+        <button id="generate">generate items</button>
+        <button id="startSim">Start</button>
+        <button id="reset">reset</button>
+
+        <div class="speed-control">
+          <label>Animation speed:</label>
+          <input
+            type="range"
+            id="speed"
+            min="100"
+            max="2000"
+            value="500"
+            step="100"
+          />
+        </div>
+      </div>
+      <div class="listContainer">
+        <div class="items" id="items">ListOfItems</div>
+        <div class="logs" id="logs">ListOfLogs</div>
+      </div>
+      <div class="result" id="result">
+        <div class="resultContent" id="resultContent"></div>
+      </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+  </body>
 </html>

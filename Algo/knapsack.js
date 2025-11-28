@@ -1,4 +1,6 @@
 // Resursive
+export let treeLog = [];
+
 let count = 1;
 function knapsackRecursive(items, maxCap, index = 0, selected = []) {
   // console.log(`the recusion is on: ${count}`);
@@ -22,9 +24,11 @@ function knapsackRecursive(items, maxCap, index = 0, selected = []) {
       selectedItems: [index, ...result.selectedItems],
       totalWeight: items[index].weight + result.totalWeight,
     };
+    treeLog.push({ type: 'Pick', item: index }); 
   }
   // count++;
   const notPick = knapsackRecursive(items, maxCap, index + 1);
+  treeLog.push({ type: 'Not picked', item: index }); 
 
   return pick.maxValue > notPick.maxValue ? pick : notPick;
 }

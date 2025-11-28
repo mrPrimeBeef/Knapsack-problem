@@ -1,3 +1,18 @@
-body{
-    background-color: #f5f5f5f5;
+body {
+  background-color: #f5f5f5f5;
+  text-align: center;
+}
+
+.listContainer {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+
+.items {
+ grid-column: 40%;
+}
+
+.logs {
+ grid-column: 40%;
 }
