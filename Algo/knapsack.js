@@ -1,49 +1,47 @@
 // Resursive
 let count = 1;
-function knapsackRecursive(items, maxCap, n, selected = []) {
+function knapsackRecursive(items, maxCap, index = 0, selected = []) {
   // console.log(`the recusion is on: ${count}`);
-  if (items == null || maxCap < 0 || n < 0) {
+  if (items == null || maxCap < 0 || index < 0) {
     return { maxValue: 0, selectedItems: [], totalWeight: 0 };
   }
 
   // Base Case
-  if (n === 0 || maxCap === 0) {
+  if (index === items.length || maxCap === 0) {
     return { maxValue: 0, selectedItems: [], totalWeight: 0 };
   }
 
   let pick = { maxValue: 0, selectedItems: [], totalWeight: 0 };
 
-  if (items[n - 1].weight <= maxCap) {
-    count++;
-    const result = knapsackRecursive(
-      items,
-      maxCap - items[n - 1].weight,
-      n - 1
-    );
+  if (items[index].weight <= maxCap) {
+    // count++;
+    const result = knapsackRecursive(items, maxCap - items[index].weight, index + 1);
 
     pick = {
-      maxValue: items[n - 1].value + result.maxValue,
-      selectedItems: [n - 1, ...result.selectedItems],
-      totalWeight: items[n - 1].weight + result.totalWeight,
+      maxValue: items[index].value + result.maxValue,
+      selectedItems: [index, ...result.selectedItems],
+      totalWeight: items[index].weight + result.totalWeight,
     };
   }
-  count++;
-  const notPick = knapsackRecursive(items, maxCap, n - 1);
+  // count++;
+  const notPick = knapsackRecursive(items, maxCap, index + 1);
 
   return pick.maxValue > notPick.maxValue ? pick : notPick;
 }
 
 export function knapsack(items, maxCap) {
-  const n = items.length;
-  return knapsackRecursive(items, maxCap, n);
+  return knapsackRecursive(items, maxCap);
 }
 
-const items = [
-  { weight: 4, value: 5 },
-  { weight: 2, value: 3 },
-  { weight: 3, value: 2 },
-  { weight: 3, value: 4 },
-  { weight: 1, value: 2 },
-];
+// const items = [
+//   { weight: 4, value: 5 },
+//   { weight: 2, value: 3 },
+//   { weight: 3, value: 2 },
+//   { weight: 3, value: 4 },
+//   { weight: 1, value: 2 },
+// ];
 
-console.log(knapsack(items, 7));
+// console.log(knapsack(items, 7));
+
+// const items = [{ weight: 10, value: 50 }];
+// console.log(knapsack(items, 20));

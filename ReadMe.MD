@@ -1,9 +1,13 @@
 # Knapsack Problem 01
   En kort beskrivelse for “almindelige mennesker”
+  - bruger Branch and Bound (deler på "resultatet" regner 2 res ud og sammenligner) og ikke divide and concour (dele på input mergesort //TODO check up på dette) 
+
   ### Big O notion
+  
   #### Time: O(2^n):
     - Med 5 elementer: ~47 operationer
     - Med 10 elementer: ~1000+ operationer
+
   #### Space: O(n)
   eks med 3 elementer
                     f(3)
@@ -33,8 +37,9 @@ eventuelt link til deployet udgave (både klikbart og læsbart)
 ## misc:
 
 ### materiale:
-https://www.geeksforgeeks.org/dsa/0-1-knapsack-problem-dp-10/
-https://www.youtube.com/watch?v=cJ21moQpofY&t=585s
+1) https://www.geeksforgeeks.org/dsa/0-1-knapsack-problem-dp-10/
+2) https://www.youtube.com/watch?v=cJ21moQpofY&t=585s
+3) https://compgeek.co.in/branch-and-bound-algorithm/
 
 
 ### Tests:
@@ -42,7 +47,7 @@ for at køre tests, skal man installere mocha
 1) npm install --save-dev mocha
 (//TODO udfyld ordenligt - save kun for dev prod)
 
-kører "npm tests"
+2) kører "npm tests"
 -b flag = bail dvs. den stopper efter 1 fejl.
 
 package.json: 
