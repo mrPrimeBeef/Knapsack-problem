@@ -9,4 +9,4 @@
       ];
 
 
-function knapsack(items) {}
+function knapsack(items, maxCap) {}
