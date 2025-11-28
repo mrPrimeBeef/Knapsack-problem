@@ -28,11 +28,32 @@ Link til GitHub repository (både klikbart og læsbart)
 eventuelt link til deployet udgave (både klikbart og læsbart)
 
 - README.md må også indeholde informationer om de anvendte algoritmer og datastrukturer, og beskrivelser af hvordan man kan køre visualiseringen lokalt.
+
+
 ## misc:
 
-materiale:
+### materiale:
 https://www.geeksforgeeks.org/dsa/0-1-knapsack-problem-dp-10/
 https://www.youtube.com/watch?v=cJ21moQpofY&t=585s
 
+
+### Tests:
+for at køre tests, skal man installere mocha
+1) npm install --save-dev mocha
+(//TODO udfyld ordenligt - save kun for dev prod)
+
+kører "npm tests"
+-b flag = bail dvs. den stopper efter 1 fejl.
+
+package.json: 
+{
+  "type": "module",
+  "scripts": {
+    "test": "mocha test.js -b"
+  },
+  "devDependencies": {
+    "mocha": "^11.7.5"
+  }
+}
 
  
