@@ -10,10 +10,18 @@
     <div class="container">
       <h1>Knapsack visualization:</h1>
       <h2>How to:</h2>
-      <p>før du kører <strong>start</strong> skal der intastes tal i <strong>"max capacity"</strong> og  generes items</p>
+      <p>
+        før du kører <strong>start</strong> skal der intastes tal i
+        <strong>"max capacity"</strong> og generes items
+      </p>
       <div class="controlls">
-        <input id="maxCap" type="number" placeholder="max capacity" />
-        <button id="generate">generate items</button>
+        <input
+          id="maxCap"
+          type="number"
+          value="7"
+          placeholder="max capacity"
+        />
+        <button id="generate">generate 5 items</button>
         <button id="startSim">Start</button>
         <button id="reset">reset</button>
 
@@ -31,7 +39,8 @@
       </div>
       <div class="listContainer">
         <div class="items" id="items">ListOfItems</div>
-        <div class="logs" id="logs">ListOfLogs</div>
+        <div class="logs" id="logs">
+        </div>
       </div>
       <div class="result" id="result">
         <div class="resultContent" id="resultContent"></div>

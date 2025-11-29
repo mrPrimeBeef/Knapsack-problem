@@ -4,15 +4,25 @@ body {
 }
 
 .listContainer {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .items {
- grid-column: 40%;
+  grid-column: 40%;
 }
 
 .logs {
- grid-column: 40%;
+  grid-column: 40%;
+}
+
+.item.picked {
+  background: #d4edda;
+  border-color: #28a745;
+}
+
+.item.not-picked {
+  background: #f8d7da;
+  border-color: #dc3545;
 }
