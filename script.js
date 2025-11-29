@@ -30,6 +30,9 @@ function reset() {
   document.getElementById("logs").innerHTML = "";
   document.getElementById("resultContent").innerHTML =
     "Run simulation for a result";
+  document.querySelectorAll(".item").forEach((el) => {
+    el.classList.remove("picked", "not-picked");
+  });
   displayItems();
 }
 
@@ -47,14 +50,14 @@ async function startSim() {
 
     const node = document.createElement("div");
     node.className = `tree-node ${log.type}`;
-    node.textContent = `item: ${log.item}`;
+    node.textContent = `${'  '.repeat(log.depth)}${log.type} - Item ${log.item}`;
     logsDiv.appendChild(node);
     logsDiv.scrollTop = logsDiv.scrollHeight;
 
     const itemEl = document.getElementById(`item-${log.item}`);
     if (itemEl) {
-      itemEl.classList.remove("picked", "not-picked");
-      itemEl.classList.add(log.type === "pick" ? "picked" : "not-picked");
+      itemEl.classList.remove("Pick", "Not-pick");
+      itemEl.classList.add(log.type === "Pick" ? "Pick" : "Not-pick");
     }
   }
   displayResult(result);
@@ -87,19 +90,15 @@ function displayItems() {
   items.forEach((item, i) => {
     const div = document.createElement("div");
     div.className = "item";
-    div.id = `item-${i + 1}`;
+    div.id = `item-${i}`;
     div.innerHTML = `
     <div class="item-info">
-    <div class="item-label">Item ${i + 1}</div>
+    <div class="item-label">Item ${i}</div>
     vægt: ${item.weight}, værdi: ${item.value}
     </div>   
     `;
     list.appendChild(div);
   });
-}
-
-function stopSim() {
-  animationSpeed = 10000000000;
 }
 
 start();

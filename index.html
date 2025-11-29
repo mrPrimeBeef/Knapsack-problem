@@ -15,13 +15,8 @@
         <strong>"max capacity"</strong> og generes items
       </p>
       <div class="controlls">
-        <input
-          id="maxCap"
-          type="number"
-          value="7"
-          placeholder="max capacity"
-        />
-        <button id="generate">generate 5 items</button>
+        <input id="maxCap" type="number" value="7" placeholder="max capacity" />
+        <button id="generate">generere 5 items</button>
         <button id="startSim">Start</button>
         <button id="reset">reset</button>
 
@@ -38,8 +33,13 @@
         </div>
       </div>
       <div class="listContainer">
-        <div class="items" id="items">ListOfItems</div>
-        <div class="logs" id="logs">
+        <div>
+          <h3>Items:</h3>
+          <div class="items" id="items"></div>
+        </div>
+        <div class="logs-container">
+          <h3>Recursion Tree:</h3>
+          <div class="logs" id="logs"></div>
         </div>
       </div>
       <div class="result" id="result">

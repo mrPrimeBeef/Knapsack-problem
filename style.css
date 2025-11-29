@@ -17,12 +17,31 @@ body {
   grid-column: 40%;
 }
 
-.item.picked {
-  background: #d4edda;
-  border-color: #28a745;
+.item {
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  transition: all 0.3s;
 }
 
-.item.not-picked {
+.item.Pick {
+  background: #d4edda;
+  font-weight: bold;
+}
+
+.item.Not-pick {
   background: #f8d7da;
-  border-color: #dc3545;
+}
+
+.tree-node {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.tree-node.pick {
+  background: #d4edda;
+}
+
+.tree-node.notpick {
+  background: #f8d7da;
 }
