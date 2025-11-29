@@ -37,8 +37,7 @@ function reset() {
 }
 
 async function startSim() {
-   document.getElementById("resultContent").innerHTML =
-    "wait for result";
+  document.getElementById("resultContent").innerHTML = "wait for result";
 
   const maxCap = parseInt(document.getElementById("maxCap").value);
   animationSpeed = parseInt(document.getElementById("speed").value);
@@ -52,16 +51,15 @@ async function startSim() {
     await new Promise((resolve) => setTimeout(resolve, animationSpeed));
 
     const node = document.createElement("div");
-    node.className = `tree-node ${log.type}`;
-   node.textContent = `Evaluating Item ${log.item} Depth: ${log.depth}`;
-    logsDiv.appendChild(node);
-    logsDiv.scrollTop = logsDiv.scrollHeight;
 
-    const itemEl = document.getElementById(`item-${log.item}`);
-    if (itemEl) {
-      itemEl.classList.remove("Pick", "Not-pick");
-      itemEl.classList.add(log.type === "Pick" ? "Pick" : "Not-pick");
-    }
+    node.className = `tree-node chosen-${log.chosen}`;
+    node.innerHTML = `
+  <div><strong>1)</strong> Items: [${log.pickItems}] Value: ${log.pickValue}</div>
+  <div><strong>2)</strong> Items: [${log.notPickItems}] Value: ${log.notPickValue}</div>
+  <div style="margin-top: 6px;"><em>Chosen: ${log.chosen}</em></div>
+`;
+
+    logsDiv.appendChild(node);
   }
   displayResult(result);
 }

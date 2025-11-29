@@ -10,14 +10,8 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
   if (index === items.length || maxCap === 0) {
     return { maxValue: 0, selectedItems: [], totalWeight: 0 };
   }
-  treeLog.push({
-    type: "Evaluating",
-    item: index,
-    depth: depth,
-    canFit: items[index].weight <= maxCap,
-  });
 
-  let pick = { maxValue: 0, selectedItems: [], totalWeight: 0 };
+  let pick = { number: 0, maxValue: 0, selectedItems: [], totalWeight: 0 };
 
   if (items[index].weight <= maxCap) {
     count++;
@@ -37,13 +31,13 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
   count++;
   const notPick = knapsackRecursive(items, maxCap, index + 1, depth + 1);
 
-  const chosenType = pick.maxValue > notPick.maxValue ? "Pick" : "Not-pick";
-  treeLog.push({
-    type: chosenType,
-    item: index,
-    depth: depth,
-    value: Math.max(pick.maxValue, notPick.maxValue)
-  });
+ treeLog.push({
+  pickItems: pick.selectedItems,
+  pickValue: pick.maxValue,
+  notPickItems: notPick.selectedItems,
+  notPickValue: notPick.maxValue,
+  chosen: pick.maxValue > notPick.maxValue ? "1" : "2"
+});
 
   return pick.maxValue > notPick.maxValue ? pick : notPick;
 }

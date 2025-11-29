@@ -29,10 +29,15 @@ body {
   padding: 15px;
   margin: 10px 0;
   border-radius: 5px;
-  transition: all 0.3s;
+  border-bottom-style: dotted;
 }
 
-.result{
+.resultContent {
+  background-color: greenyellow;
+  padding: 10px;
+}
+
+.result {
   margin-top: 30px;
   padding: 10px;
   max-height: 200px;
@@ -40,24 +45,17 @@ body {
   border-radius: 5px;
 }
 
-.item.Pick {
-  background: #d4edda;
-  font-weight: bold;
-}
-
-.item.Not-pick {
-  background: #f8d7da;
-}
-
 .tree-node {
   padding: 10px;
   margin: 5px 0;
 }
 
-.tree-node.Pick {
-  background: #d4edda;
+.tree-node.chosen-1 {
+  color:black ;
+  background: #ebeb87;
 }
 
-.tree-node.Not-pick {
-  background: #f8d7da;
+.tree-node.chosen-2 {
+  color: white;
+  background: #6969ec;
 }
