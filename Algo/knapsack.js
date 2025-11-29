@@ -30,14 +30,15 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
   }
   count++;
   const notPick = knapsackRecursive(items, maxCap, index + 1, depth + 1);
-
- treeLog.push({
-  pickItems: pick.selectedItems,
-  pickValue: pick.maxValue,
-  notPickItems: notPick.selectedItems,
-  notPickValue: notPick.maxValue,
-  chosen: pick.maxValue > notPick.maxValue ? "1" : "2"
-});
+  treeLog.push({
+    pickItems: pick.selectedItems,
+    pickValue: pick.maxValue,
+    pickTotalWeight: pick.totalWeight,
+    notPickItems: notPick.selectedItems,
+    notPickValue: notPick.maxValue,
+    notPickTotalWeight: notPick.totalWeight,
+    chosen: pick.maxValue > notPick.maxValue ? "1" : "2",
+  });
 
   return pick.maxValue > notPick.maxValue ? pick : notPick;
 }

@@ -38,7 +38,7 @@ Rolf lundsgaard Josephsen
 - README.md må også indeholde informationer om de anvendte algoritmer og datastrukturer, og beskrivelser af hvordan man kan køre visualiseringen lokalt.
 
 
-## miscellaneous:
+## Miscellaneous:
 
 ### materialer:
 1) https://www.geeksforgeeks.org/dsa/0-1-knapsack-problem-dp-10/

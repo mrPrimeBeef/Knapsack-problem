@@ -54,10 +54,10 @@ async function startSim() {
 
     node.className = `tree-node chosen-${log.chosen}`;
     node.innerHTML = `
-  <div><strong>1)</strong> Items: [${log.pickItems}] Value: ${log.pickValue}</div>
-  <div><strong>2)</strong> Items: [${log.notPickItems}] Value: ${log.notPickValue}</div>
-  <div style="margin-top: 6px;"><em>Chosen: ${log.chosen}</em></div>
-`;
+      <div><strong>1)</strong> Items: [${log.pickItems}] with <strong>Value:</strong> ${log.pickValue} and <strong>TotalWeight:</strong> ${log.pickTotalWeight}</div>
+      <div><strong>2)</strong> Items: [${log.notPickItems}] with <strong>Value:</strong> ${log.notPickValue} and <strong>TotalWeight:</strong> ${log.notPickTotalWeight}</div>
+      <div style="margin-top: 6px;"><em>Chosen: ${log.chosen}</em></div>
+      `;
 
     logsDiv.appendChild(node);
   }
