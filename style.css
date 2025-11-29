@@ -10,11 +10,19 @@ body {
 }
 
 .items {
-  grid-column: 40%;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .logs {
-  grid-column: 40%;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .item {
@@ -22,6 +30,14 @@ body {
   margin: 10px 0;
   border-radius: 5px;
   transition: all 0.3s;
+}
+
+.result{
+  margin-top: 30px;
+  padding: 10px;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .item.Pick {
@@ -38,10 +54,10 @@ body {
   margin: 5px 0;
 }
 
-.tree-node.pick {
+.tree-node.Pick {
   background: #d4edda;
 }
 
-.tree-node.notpick {
+.tree-node.Not-pick {
   background: #f8d7da;
 }

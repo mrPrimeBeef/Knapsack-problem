@@ -37,6 +37,9 @@ function reset() {
 }
 
 async function startSim() {
+   document.getElementById("resultContent").innerHTML =
+    "wait for result";
+
   const maxCap = parseInt(document.getElementById("maxCap").value);
   animationSpeed = parseInt(document.getElementById("speed").value);
 
@@ -50,7 +53,7 @@ async function startSim() {
 
     const node = document.createElement("div");
     node.className = `tree-node ${log.type}`;
-    node.textContent = `${'  '.repeat(log.depth)}${log.type} - Item ${log.item}`;
+   node.textContent = `Evaluating Item ${log.item} Depth: ${log.depth}`;
     logsDiv.appendChild(node);
     logsDiv.scrollTop = logsDiv.scrollHeight;
 
@@ -68,7 +71,7 @@ function displayResult(result) {
   let resultConent = document.getElementById("resultContent");
 
   let resultHTML = `
-  <div class="result-item"><strong>Antal repitioner: </strong> ${count}</div>
+  <div class="result-item"><strong>Antal repetitioner: </strong> ${count}</div>
   <div class="result-item"><strong>Maksimal værdi: </strong>${
     result.maxValue
   }</div>
