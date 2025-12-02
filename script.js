@@ -31,7 +31,7 @@ function reset() {
   document.getElementById("resultContent").innerHTML =
     "Run simulation for a result";
   document.querySelectorAll(".item").forEach((el) => {
-    el.classList.remove("picked", "not-picked");
+    el.classList.remove("1", "2");
   });
   displayItems();
 }
@@ -54,13 +54,15 @@ async function startSim() {
 
     node.className = `tree-node chosen-${log.chosen}`;
     node.innerHTML = `
-      <div><strong>1)</strong> Items: [${log.pickItems}] with <strong>Value:</strong> ${log.pickValue} and <strong>TotalWeight:</strong> ${log.pickTotalWeight}</div>
-      <div><strong>2)</strong> Items: [${log.notPickItems}] with <strong>Value:</strong> ${log.notPickValue} and <strong>TotalWeight:</strong> ${log.notPickTotalWeight}</div>
+      <div><strong>1)</strong> Items: [${log.firstChoiceItems}] with <strong>Value:</strong> ${log.firstChoiceValue} and <strong>TotalWeight:</strong> ${log.firstChoiceTotalWeight}</div>
+      <br>
+      <div><strong>2)</strong> Items: [${log.secoundChoiceItems}] with <strong>Value:</strong> ${log.secoundChoiceValue} and <strong>TotalWeight:</strong> ${log.secoundChoiceTotalWeight}</div>
       <div style="margin-top: 6px;"><em>Chosen: ${log.chosen}</em></div>
       `;
 
     logsDiv.appendChild(node);
   }
+
   displayResult(result);
 }
 
@@ -68,7 +70,16 @@ function displayResult(result) {
   const resultDiv = document.getElementById("result");
   let resultConent = document.getElementById("resultContent");
 
+  document.querySelectorAll(".item").forEach((element) => {
+    const itemId = parseInt(element.id.split("-")[1]);
+
+    if (result.selectedItems.includes(itemId)) {
+      element.classList.add("chosen");
+    }
+  });
+
   let resultHTML = `
+  <div class="resultContainer">
   <div class="result-item"><strong>Antal repetitioner: </strong> ${count}</div>
   <div class="result-item"><strong>Maksimal værdi: </strong>${
     result.maxValue
@@ -79,7 +90,7 @@ function displayResult(result) {
   <div class="result-item"><strong>Valgte items:</strong> ${
     result.selectedItems.map((i) => `Item ${i}`).join(", ") || "Ingen"
   }</div>
-      `;
+      </div>`;
 
   resultConent.innerHTML = resultHTML;
   resultDiv.style.display = "block";

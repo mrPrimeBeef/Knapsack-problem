@@ -32,9 +32,22 @@ body {
   border-bottom-style: dotted;
 }
 
+.chosen {
+  color: black;
+  background: greenyellow;
+}
+
 .resultContent {
   background-color: greenyellow;
   padding: 10px;
+  display: grid;
+}
+.resultContainer {
+  justify-self: center;
+}
+
+.result-item {
+  text-align: left;
 }
 
 .result {
@@ -50,12 +63,12 @@ body {
   margin: 5px 0;
 }
 
-.tree-node.chosen-1 {
-  color:black ;
+.chosen-1 {
+  color: black;
   background: #ebeb87;
 }
 
-.tree-node.chosen-2 {
+.chosen-2 {
   color: white;
   background: #6969ec;
 }
