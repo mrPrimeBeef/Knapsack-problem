@@ -56,7 +56,7 @@ async function startSim() {
 
     for (let i = 0; i < items.length + 2; i++) {
       let tabelData = document.createElement("td");
-      tabelData.className = `${i}`;
+      tabelData.className = `${i} tabledata`;
 
       if (i < items.length) {
         tabelData.innerText = `item: ${i}`;
@@ -79,6 +79,8 @@ async function startSim() {
     }
 
     document.querySelector("table tbody").appendChild(row);
+
+   document.querySelector("table tbody tr:last-child").scrollIntoView();
   }
   displayResult(result);
 }
