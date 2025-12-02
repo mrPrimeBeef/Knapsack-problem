@@ -61,6 +61,8 @@ async function startSim() {
       `;
 
     logsDiv.appendChild(node);
+
+    logsDiv.querySelector(".tree-node:last-child").scrollIntoView();
   }
 
   displayResult(result);
