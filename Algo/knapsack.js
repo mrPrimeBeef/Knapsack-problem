@@ -20,8 +20,8 @@ function knapsackRecursive(items, maxCap, index = 0, selected = []) {
     selectedItems: [],
     totalWeight: 0,
   };
-  let consoleF = items[index] 
-  console.log(consoleF);
+  // let consoleF = items[index]
+  // console.log(consoleF);
   if (items[index].weight <= maxCap) {
     const result = knapsackRecursive(
       items,
@@ -49,6 +49,9 @@ function knapsackRecursive(items, maxCap, index = 0, selected = []) {
     chosen: firstChoice.maxValue > secoundChoice.maxValue ? "1" : "2",
   });
   console.groupEnd();
+  console.log(
+    ` firstChoice: ${firstChoice.maxValue} ||| secoundChoice: ${secoundChoice.maxValue}`
+  );
   return firstChoice.maxValue > secoundChoice.maxValue
     ? firstChoice
     : secoundChoice;
