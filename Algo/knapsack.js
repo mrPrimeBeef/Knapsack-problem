@@ -34,6 +34,7 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
     firstChoiceItems: firstChoice.selectedItems,
     firstChoiceValue: firstChoice.maxValue,
     firstChoiceTotalWeight: firstChoice.totalWeight,
+    
     secoundChoiceItems: secoundChoice.selectedItems,
     secoundChoiceValue: secoundChoice.maxValue,
     secoundChoiceTotalWeight: secoundChoice.totalWeight,
