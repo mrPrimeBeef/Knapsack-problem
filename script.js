@@ -27,7 +27,7 @@ function generateItems() {
 
 function reset() {
   items = [];
-  // document.getElementById("logs").innerHTML = "";
+  document.getElementById("logsbody").innerHTML = ``;
   document.getElementById("resultContent").innerHTML =
     "Run simulation for a result";
   document.querySelectorAll(".item").forEach((el) => {
@@ -49,28 +49,38 @@ async function startSim() {
 
     const row = document.createElement("tr");
 
+    const isFirstChoiceBetter = log.firstChoiceValue > log.secoundChoiceValue;
+    const chosenItems = isFirstChoiceBetter
+      ? log.firstChoiceItems
+      : log.secoundChoiceItems;
+
     for (let i = 0; i < items.length + 2; i++) {
       let tabelData = document.createElement("td");
-      tabelData.id = `item-${i}`;
-      console.log(log);
+      tabelData.className = `${i}`;
+
       if (i < items.length) {
         tabelData.innerText = `item: ${i}`;
-      } else if (i === items.length) {
-        if(log.firstChoiceValue > log.secoundChoiceValue){
-          tabelData.innerText = `${log.firstChoiceValue}`;
-        } else {
-          tabelData.innerText = `${log.secoundChoiceValue}`;
+        if (chosenItems.includes(i)) {
+          tabelData.classList.add(
+            isFirstChoiceBetter ? "chosen-1" : "chosen-2"
+          );
         }
+      } else if (i === items.length) {
+        tabelData.innerText = isFirstChoiceBetter
+          ? `${log.firstChoiceValue}`
+          : `${log.secoundChoiceValue}`;
       } else {
-        tabelData.innerText = `${log.firstChoiceTotalWeight}`;
+        tabelData.innerText = isFirstChoiceBetter
+          ? `${log.firstChoiceTotalWeight}`
+          : `${log.secoundChoiceTotalWeight}`;
       }
 
       row.appendChild(tabelData);
     }
 
     document.querySelector("table tbody").appendChild(row);
-    displayResult(result);
   }
+  displayResult(result);
 }
 
 function displayResult(result) {

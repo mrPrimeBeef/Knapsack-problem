@@ -18,11 +18,13 @@ body {
 }
 
 .logs {
-  max-height: 400px;
-  overflow-y: auto;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
+}
+.newContainer {
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .item {
@@ -75,8 +77,9 @@ body {
   background: #6969ec;
 }
 
-
-table, th, td {
+table,
+th,
+td {
   padding: 4px;
   border: 1px solid black;
 }
