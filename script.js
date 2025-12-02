@@ -80,7 +80,7 @@ async function startSim() {
 
     document.querySelector("table tbody").appendChild(row);
 
-   document.querySelector("table tbody tr:last-child").scrollIntoView();
+    document.querySelector("table tbody tr:last-child").scrollIntoView();
   }
   displayResult(result);
 }
