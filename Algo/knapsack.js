@@ -1,8 +1,8 @@
 // Resursive
-export let treeLog = [];
+export let logs = [];
 export let count = 0;
 
-function knapsackRecursive(items, maxCap, index = 0, selected = []) {
+function knapsackRecursive(items, maxCap, index = 0) {
   console.group(`Depth: ${index + 1}`);
   if (items == null || maxCap < 0 || index < 0) {
     console.groupEnd();
@@ -38,7 +38,7 @@ function knapsackRecursive(items, maxCap, index = 0, selected = []) {
   const secoundChoice = knapsackRecursive(items, maxCap, index + 1);
 
   count++;
-  treeLog.push({
+  logs.push({
     firstChoiceItems: firstChoice.selectedItems,
     firstChoiceValue: firstChoice.maxValue,
     firstChoiceTotalWeight: firstChoice.totalWeight,
@@ -57,7 +57,7 @@ function knapsackRecursive(items, maxCap, index = 0, selected = []) {
     : secoundChoice;
 }
 export function knapsack(items, maxCap) {
-  treeLog = [];
+  logs = [];
   count = 0;
   return knapsackRecursive(items, maxCap, 0);
 }
