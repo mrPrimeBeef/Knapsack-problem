@@ -73,7 +73,7 @@ const items = [
   { weight: 1, value: 2 },
 ];
 
-console.log(knapsack(items, 7));
+// console.log(knapsack(items, 7));
 
 // const items = [{ weight: 10, value: 50 }];
 // console.log(knapsack(items, 20));
