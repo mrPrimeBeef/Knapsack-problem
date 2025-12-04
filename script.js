@@ -27,7 +27,7 @@ function generateItems() {
 
 function reset() {
   items = [];
-  document.getElementById("logsbody").innerHTML = ``;
+  document.getElementById("logs").innerHTML = ``;
   document.getElementById("resultContent").innerHTML =
     "Run simulation for a result";
   document.querySelectorAll(".item").forEach((el) => {
