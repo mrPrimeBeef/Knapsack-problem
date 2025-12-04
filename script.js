@@ -11,6 +11,8 @@ function start() {
   startBtn.addEventListener("click", startSim);
   genBtn.addEventListener("click", generateItems);
   clearBtn.addEventListener("click", reset);
+
+  generateItems();
 }
 
 function generateItems() {
