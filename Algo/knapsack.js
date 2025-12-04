@@ -2,7 +2,7 @@
 export let treeLog = [];
 export let count = 0;
 
-function knapsackRecursive(items, maxCap, index = 0, depth = 0) {
+function knapsackRecursive(items, maxCap, index = 0) {
   console.group(`Depth: ${index + 1}`);
 
   if (items == null || maxCap < 0 || index < 0) {
@@ -36,7 +36,7 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0) {
     };
   }
   
-  const secoundChoice = knapsackRecursive(items, maxCap, index + 1, depth + 1);
+  const secoundChoice = knapsackRecursive(items, maxCap, index + 1);
 
   count++;
   treeLog.push({
@@ -62,7 +62,7 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0) {
 export function knapsack(items, maxCap) {
   treeLog = [];
   count = 0;
-  return knapsackRecursive(items, maxCap, 0, 0);
+  return knapsackRecursive(items, maxCap, 0);
 }
 
 const items = [
