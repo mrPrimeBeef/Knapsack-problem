@@ -27,7 +27,8 @@ function generateItems() {
 
 function reset() {
   items = [];
-  document.getElementById("logs").innerHTML = ``;
+  document.getElementById("logs2").innerHTML = ``;
+  document.getElementById("logsbody").innerHTML = ``;
   document.getElementById("resultContent").innerHTML =
     "Run simulation for a result";
   document.querySelectorAll(".item").forEach((el) => {
@@ -44,7 +45,56 @@ async function startSim() {
 
   const result = knapsack(items, maxCap);
 
-  const logsDiv = document.getElementById("logs");
+  await Promise.all([retree(animationSpeed), tabel(animationSpeed)]);
+
+  displayResult(result);
+}
+
+async function tabel() {
+  for (let log of treeLog) {
+    await new Promise((resolve) => setTimeout(resolve, animationSpeed));
+
+    const row = document.createElement("tr");
+
+    const isFirstChoiceBetter = log.firstChoiceValue > log.secoundChoiceValue;
+    const chosenItems = isFirstChoiceBetter
+      ? log.firstChoiceItems
+      : log.secoundChoiceItems;
+
+    for (let i = 0; i < items.length + 3; i++) {
+      let tabelData = document.createElement("td");
+      tabelData.className = `${i} tabledata`;
+
+      if (i === 0) {
+        tabelData.innerText = `${treeLog.indexOf(log) + 1}`;
+      } else if (i <= items.length) {
+        tabelData.innerText = `item: ${i}`;
+        if (chosenItems.includes(i - 1)) {
+          tabelData.classList.add(
+            isFirstChoiceBetter ? "chosen-1" : "chosen-2"
+          );
+        }
+      } else if (i === items.length + 1) {
+        tabelData.innerText = isFirstChoiceBetter
+          ? `${log.firstChoiceValue}`
+          : `${log.secoundChoiceValue}`;
+      } else {
+        tabelData.innerText = isFirstChoiceBetter
+          ? `${log.firstChoiceTotalWeight}`
+          : `${log.secoundChoiceTotalWeight}`;
+      }
+
+      row.appendChild(tabelData);
+    }
+
+    document.querySelector("table tbody").appendChild(row);
+
+    document.querySelector("table tbody tr:last-child").scrollIntoView();
+  }
+}
+
+async function retree(animationSpeed) {
+  const logsDiv = document.getElementById("logs2");
 
   logsDiv.innerHTML = "";
   for (let log of treeLog) {
@@ -54,9 +104,19 @@ async function startSim() {
 
     node.className = `tree-node chosen-${log.chosen}`;
     node.innerHTML = `
-      <div><strong>1)</strong> Items: [${log.firstChoiceItems}] with <strong>Value:</strong> ${log.firstChoiceValue} and <strong>TotalWeight:</strong> ${log.firstChoiceTotalWeight}</div>
+    <div><strong>iteration: ${treeLog.indexOf(log) + 1}</strong></div>
+    <br>
+      <div><strong>1)</strong> Items: [${
+        log.firstChoiceItems
+      }] with <strong>Value:</strong> ${
+      log.firstChoiceValue
+    } and <strong>TotalWeight:</strong> ${log.firstChoiceTotalWeight}</div>
       <br>
-      <div><strong>2)</strong> Items: [${log.secoundChoiceItems}] with <strong>Value:</strong> ${log.secoundChoiceValue} and <strong>TotalWeight:</strong> ${log.secoundChoiceTotalWeight}</div>
+      <div><strong>2)</strong> Items: [${
+        log.secoundChoiceItems
+      }] with <strong>Value:</strong> ${
+      log.secoundChoiceValue
+    } and <strong>TotalWeight:</strong> ${log.secoundChoiceTotalWeight}</div>
       <div style="margin-top: 6px;"><em>Chosen: ${log.chosen}</em></div>
       `;
 
@@ -64,8 +124,6 @@ async function startSim() {
 
     logsDiv.querySelector(".tree-node:last-child").scrollIntoView();
   }
-
-  displayResult(result);
 }
 
 function displayResult(result) {
