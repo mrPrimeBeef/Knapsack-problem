@@ -39,7 +39,7 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0) {
   const secoundChoice = knapsackRecursive(items, maxCap, index + 1, depth + 1);
 
   count++;
-  logs.push({
+  treeLog.push({
     firstChoiceItems: firstChoice.selectedItems,
     firstChoiceValue: firstChoice.maxValue,
     firstChoiceTotalWeight: firstChoice.totalWeight,

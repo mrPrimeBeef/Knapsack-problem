@@ -22,7 +22,7 @@ body {
   padding: 10px;
   border-radius: 5px;
 }
-.newContainer {
+.logs-container {
   max-height: 400px;
   overflow-y: auto;
 }

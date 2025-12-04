@@ -1,4 +1,4 @@
-import { knapsack, logs, count } from "./Algo/knapsack.js";
+import { knapsack, treeLog, count } from "./Algo/knapsack.js";
 
 let items = [];
 let animationSpeed = 500;
@@ -44,7 +44,7 @@ async function startSim() {
 
   const result = knapsack(items, maxCap);
 
-  for (let log of logs) {
+  for (let log of treeLog) {
     await new Promise((resolve) => setTimeout(resolve, animationSpeed));
 
     const row = document.createElement("tr");
