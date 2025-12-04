@@ -68,7 +68,7 @@ async function tabel() {
       if (i === 0) {
         tabelData.innerText = `${treeLog.indexOf(log) + 1}`;
       } else if (i <= items.length) {
-        tabelData.innerText = `item: ${i}`;
+        tabelData.innerText = `item: ${i-1}`;
         if (chosenItems.includes(i - 1)) {
           tabelData.classList.add(
             isFirstChoiceBetter ? "chosen-1" : "chosen-2"

@@ -3,7 +3,7 @@ export let treeLog = [];
 export let count = 0;
 
 function knapsackRecursive(items, maxCap, index = 0) {
-  console.group(`Depth: ${index + 1}`);
+  console.group(`Depth: ${index}`);
 
   if (items == null || maxCap < 0 || index < 0) {
     console.groupEnd();
