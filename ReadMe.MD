@@ -6,10 +6,8 @@
 
   de er beskrevet i bunden.
 
-
 ## Big O-notation for 0/1 Knapsack-problemet
  Kompleksiteten for denne algoritme når man løser den rekursivet er O(2^n), fordi hvert item har to muligheder (inkludér eller udeluk), hvilket skaber 2^n kombinationer i værste tilfælde. Dette gør metoden ineffektiv for større datasæt, selvom den er intuitiv for at forstå problemet.
-
 
   #### Tidskompleksitet: O(2^n)
   - Med 5 elementer: ~32 operationer
@@ -23,10 +21,8 @@
 
   Rekursiv løsning bruger mindre plads end iterative løsninger, men køre langsommere. Den sparede tid i den iterative tilgang opnås ved at bruge mere hukommelse til at gemme mellemresultater.
 
-
 ## Sceenshot af visualisering:
 ![alt text](image.png)
-
 
 ## Gruppe:
 Rolf lundsgaard Josephsen
@@ -34,9 +30,6 @@ Rolf lundsgaard Josephsen
 ## Links til Repo og deployed version:
 1) https://github.com/mrPrimeBeef/Knapsack-problem
 2) https://mrprimebeef.github.io/Knapsack-problem/
-
-- README.md må også indeholde informationer om de anvendte algoritmer og datastrukturer, og beskrivelser af hvordan man kan køre visualiseringen lokalt.
-
 
 ## Miscellaneous:
 
