@@ -4,6 +4,7 @@ export let count = 0;
 
 function knapsackRecursive(items, maxCap, index = 0) {
   console.group(`Depth: ${index + 1}`);
+  
   if (items == null || maxCap < 0 || index < 0) {
     console.groupEnd();
     return { maxValue: 0, selectedItems: [], totalWeight: 0 };
