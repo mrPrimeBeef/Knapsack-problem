@@ -22,7 +22,7 @@
   Rekursiv løsning bruger mindre plads end iterative løsninger, men køre langsommere. Den sparede tid i den iterative tilgang opnås ved at bruge mere hukommelse til at gemme mellemresultater.
 
 ## Sceenshot af visualisering:
-![alt text](image.png)
+![alt text](assets\image.png)
 
 ## Gruppe:
 Rolf lundsgaard Josephsen
