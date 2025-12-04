@@ -1,8 +1,8 @@
 // Resursive
 export let treeLog = [];
-export let count = 1;
+export let count = 0;
 
-function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
+function knapsackRecursive(items, maxCap, index = 0, depth = 0) {
   if (items == null || maxCap < 0 || index < 0) {
     return { maxValue: 0, selectedItems: [], totalWeight: 0 };
   }
@@ -11,10 +11,14 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
     return { maxValue: 0, selectedItems: [], totalWeight: 0 };
   }
 
-  let firstChoice = { number: 0, maxValue: 0, selectedItems: [], totalWeight: 0 };
+  let firstChoice = {
+    number: 0,
+    maxValue: 0,
+    selectedItems: [],
+    totalWeight: 0,
+  };
 
   if (items[index].weight <= maxCap) {
-    count++;
     const result = knapsackRecursive(
       items,
       maxCap - items[index].weight,
@@ -28,8 +32,9 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
       totalWeight: items[index].weight + result.totalWeight,
     };
   }
-  count++;
+  
   const secoundChoice = knapsackRecursive(items, maxCap, index + 1, depth + 1);
+  count++;
   treeLog.push({
     firstChoiceItems: firstChoice.selectedItems,
     firstChoiceValue: firstChoice.maxValue,
@@ -40,11 +45,13 @@ function knapsackRecursive(items, maxCap, index = 0, depth = 0, selected = []) {
     chosen: firstChoice.maxValue > secoundChoice.maxValue ? "1" : "2",
   });
 
-  return firstChoice.maxValue > secoundChoice.maxValue ? firstChoice : secoundChoice;
+  return firstChoice.maxValue > secoundChoice.maxValue
+    ? firstChoice
+    : secoundChoice;
 }
 export function knapsack(items, maxCap) {
   treeLog = [];
-  count = 1;
+  count = 0;
   return knapsackRecursive(items, maxCap, 0, 0);
 }
 
