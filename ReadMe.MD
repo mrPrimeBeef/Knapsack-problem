@@ -1,7 +1,5 @@
 # Knapsack Problem 01
-  Knapsack-problemet handler om at vælge genstande til en rygsæk, når der ikke er plads til alt. Hver genstand har både en vægt og en værdi, og opgaven er at finde den kombination af genstande, som giver den højeste samlede værdi uden at overskride rygsækkens kapacitet.
-
-  Denne algoritme gennemgår forskellige kombinationer af genstande for at finde den bedste løsning. Den anvender "Branch and Bound"-teknikken, som systematisk opdeler problemet ved at teste forskellige muligheder og udelukke de dårligste løsninger tidligt. Dette adskiller sig fra "Divide and Conquer"-metoder (som fx mergesort), der deler input i mindre dele.
+  the 0/1 Knapsack problemet handler om at vælge genstande til en rygsæk, når der ikke er plads til alt. Hver genstand har både en vægt og en værdi, og opgaven er at finde den kombination af genstande, som giver den højeste samlede værdi uden at overskride rygsækkens kapacitet.
 
   der findes 2 andre verisoner af knapsack problem:
   Unbounded Knapsack og Double Knapsack.
@@ -10,8 +8,8 @@
 
 
 ## Big O-notation for 0/1 Knapsack-problemet
+ Kompleksiteten for denne algoritme når man løser den rekursivet er O(2^n), fordi hvert item har to muligheder (inkludér eller udeluk), hvilket skaber 2^n kombinationer i værste tilfælde. Dette gør metoden ineffektiv for større datasæt, selvom den er intuitiv for at forstå problemet.
 
-  Algoritmen skal gennemgå alle mulige kombinationer af genstande, hvilket giver en eksponentiel tidskompleksitet uden memoization, men man kan lave en version med Med rekursion + memoization og får en bigO af: O(n × W). eller bruge gøre det via Dynamic Programming (iterativt).
 
   #### Tidskompleksitet: O(2^n)
   - Med 5 elementer: ~32 operationer
@@ -20,6 +18,8 @@
   #### Rumkompleksitet: O(n)
   - Hvert funktionskald bruger O(1) plads
   - Funktionen skal kaldes n gange, hvor n er dybden af stakken
+  - Selvom algoritmen køres 2^n gange, gemmes der kun O(n) variabler i hukommelsen 
+    på samme tid, fordi der kun er én aktiv funktionskald per dybde på call stacken
 
   Rekursiv løsning bruger mindre plads end iterative løsninger, men køre langsommere. Den sparede tid i den iterative tilgang opnås ved at bruge mere hukommelse til at gemme mellemresultater.
 
