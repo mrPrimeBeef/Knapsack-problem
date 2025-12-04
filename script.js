@@ -44,44 +44,27 @@ async function startSim() {
 
   const result = knapsack(items, maxCap);
 
+  const logsDiv = document.getElementById("logs");
+
+  logsDiv.innerHTML = "";
   for (let log of treeLog) {
     await new Promise((resolve) => setTimeout(resolve, animationSpeed));
 
-    const row = document.createElement("tr");
+    const node = document.createElement("div");
 
-    const isFirstChoiceBetter = log.firstChoiceValue > log.secoundChoiceValue;
-    const chosenItems = isFirstChoiceBetter
-      ? log.firstChoiceItems
-      : log.secoundChoiceItems;
+    node.className = `tree-node chosen-${log.chosen}`;
+    node.innerHTML = `
+      <div><strong>1)</strong> Items: [${log.firstChoiceItems}] with <strong>Value:</strong> ${log.firstChoiceValue} and <strong>TotalWeight:</strong> ${log.firstChoiceTotalWeight}</div>
+      <br>
+      <div><strong>2)</strong> Items: [${log.secoundChoiceItems}] with <strong>Value:</strong> ${log.secoundChoiceValue} and <strong>TotalWeight:</strong> ${log.secoundChoiceTotalWeight}</div>
+      <div style="margin-top: 6px;"><em>Chosen: ${log.chosen}</em></div>
+      `;
 
-    for (let i = 0; i < items.length + 2; i++) {
-      let tabelData = document.createElement("td");
-      tabelData.className = `${i} tabledata`;
+    logsDiv.appendChild(node);
 
-      if (i < items.length) {
-        tabelData.innerText = `item: ${i}`;
-        if (chosenItems.includes(i)) {
-          tabelData.classList.add(
-            isFirstChoiceBetter ? "chosen-1" : "chosen-2"
-          );
-        }
-      } else if (i === items.length) {
-        tabelData.innerText = isFirstChoiceBetter
-          ? `${log.firstChoiceValue}`
-          : `${log.secoundChoiceValue}`;
-      } else {
-        tabelData.innerText = isFirstChoiceBetter
-          ? `${log.firstChoiceTotalWeight}`
-          : `${log.secoundChoiceTotalWeight}`;
-      }
-
-      row.appendChild(tabelData);
-    }
-
-    document.querySelector("table tbody").appendChild(row);
-
-    document.querySelector("table tbody tr:last-child").scrollIntoView();
+    logsDiv.querySelector(".tree-node:last-child").scrollIntoView();
   }
+
   displayResult(result);
 }
 
